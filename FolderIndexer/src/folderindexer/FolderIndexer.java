@@ -16,6 +16,9 @@ public class FolderIndexer {
     public void welcome(){
         System.out.println("Selamat datang di program Folder Indexer");
         System.out.println("    Oleh Kelompok 9 | Kelas SI-37-01");
+        System.out.println("             Sistem Informasi");
+        System.out.println("        Fakultas Rekayasa Industri");
+        System.out.println("           -=Telkom University=-");
         System.out.println();
         System.out.println("Folder yang sedang di index adalah : "+pathFolder);
         System.out.println();
