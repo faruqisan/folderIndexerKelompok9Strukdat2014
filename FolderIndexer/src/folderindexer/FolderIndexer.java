@@ -11,6 +11,7 @@ public class FolderIndexer {
     String pathFolder = "20_newsgroups";
     String pathFolderIndex = "20_newsgroups\\index.txt";
     Data root;
+    int numberOfFileContaindWordToFind=0;
     
     public void welcome(){
         System.out.println("Selamat datang di program Folder Indexer");
@@ -101,6 +102,13 @@ public class FolderIndexer {
     public void traversePreOrder(String wordToFind) throws IOException{
         preOrder(root,wordToFind);
         System.out.println();
+        if(numberOfFileContaindWordToFind==0){
+            System.out.println("Tidak ditemukan File yang mengandung kata "+wordToFind);
+        }else{
+            System.out.println("Jumlah File yang mengandung kata "+wordToFind+" = "+numberOfFileContaindWordToFind);
+        }        
+        System.out.println();
+        numberOfFileContaindWordToFind=0;
     }
     
     private void preOrder(Data root,String wordToFind) throws IOException{
@@ -114,7 +122,6 @@ public class FolderIndexer {
     private void prosesFile(String path,String wordToFind) throws FileNotFoundException, IOException{
         FileReader fr = new FileReader(path);
         BufferedReader br = new BufferedReader(fr);
-        
         int lineNumber = 1;
         boolean found = false;
         
@@ -126,6 +133,7 @@ public class FolderIndexer {
                 if(found==false){
                     System.out.println("Data ditemukan di : " + path);
                     found = true;
+                    numberOfFileContaindWordToFind++;
                 }
                 System.out.println("\tLine-" + lineNumber + "-->" + line);
             }
